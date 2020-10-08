@@ -28,10 +28,10 @@ jobs:
       - name: TestStep
         id: TestStep
         run: |
-          echo "${{ matrix.AWS_ENV }}"
-          echo "${{ matrix.shouldRun }}"
+          echo "${{ matrix.config.AWS_ENV }}"
+          echo "${{ matrix.config.shouldRun }}"
       - name: TestStep2
-        if: fromJson(matrix.shouldRun)
+        if: fromJson(matrix.config.shouldRun)
         run: |
           echo "hello"
      
