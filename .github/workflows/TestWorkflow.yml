@@ -1,0 +1,13 @@
+name: TestWorkflow
+
+on:
+  push:
+    tags:
+      - "*test*"
+jobs:
+  TestJob:
+    name: TestJob
+    runs-on: ubuntu-latest
+    steps:
+      - name: TestStep
+        run: echo "Hello and goodbye"
