@@ -13,8 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
+        env: 
+          test: true
+          test2: false
         run: |
           echo "${{ github.ref }}"
           echo "${{ contains(github.ref, 'v') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'main') }}"
           echo "${{ contains(github.ref, 'v*.*.*') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'main') }}"
-          echo "${{ toJSON(github) }}"
+          echo "${{ env.test == "true" && "blä1" || "buu1" }}"
+          echo "${{ env.test && "blä2" || "buu2" }}"
+          echo "${{ !env.test2 && "blä3" || "buu3" }}"
+          echo "${{ env.test2 && "blä4" || "buu4" }}"
