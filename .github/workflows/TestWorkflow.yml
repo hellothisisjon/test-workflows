@@ -19,7 +19,7 @@ jobs:
       - name: TestStep2
         env: 
           testi: ${{ steps.TestStep.outputs.tests.test && 'blä1' || 'buu1' }}
-          testi2: ${{ fromJSON(steps.TestStep.outputs.tests.test2) && 'blä4' || 'buu4' }}
+          testi2: ${{ steps.TestStep.outputs.tests.test2 && 'blä4' || 'buu4' }}
         run: |
           echo "${{ env.testi }}"
           echo "${{ steps.TestStep.outputs.test2 }}"
