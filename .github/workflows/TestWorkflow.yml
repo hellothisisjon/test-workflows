@@ -13,16 +13,16 @@ env:
       # If the ref pushed is etiher staging or contains tags and the word hotfix
   shouldDeployToStaging: "false"
 jobs:
-  # comment
+  # commen
   TestJob:
-    if: ${{ matrix.config.shouldRun == 'true' }}
     strategy:
       matrix:
         config:
-        -  {AWS_ENV: 'dev', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{contains(github.ref, 'tags')}}" }
-        -  {AWS_ENV: 'fina', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{'a' == 'a'}}" }
-        -  {AWS_ENV: 'prod', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
-        -  {AWS_ENV: 'staging', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
+          -  {AWS_ENV: 'dev', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{contains(github.ref, 'tags')}}", secret: "${{secrets.mysecret}}" }
+          -  {AWS_ENV: 'fina', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{'a' == 'a'}}" }
+          -  {AWS_ENV: 'prod', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
+          -  {AWS_ENV: 'staging', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
+        
     name: TestJob
     runs-on: ubuntu-latest
     steps:
