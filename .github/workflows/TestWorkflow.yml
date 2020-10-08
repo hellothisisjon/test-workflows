@@ -26,9 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
-        if: ${{ strategy.}}
         id: TestStep
         run: |
           echo "${{ matrix.AWS_ENV }}"
           echo "${{ matrix.shouldRun }}"
+      - name: TestStep2
+        if: fromJson(matrix.shouldRun)
+        run: |
+          echo "hello"
      
