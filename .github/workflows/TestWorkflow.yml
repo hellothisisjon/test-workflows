@@ -12,12 +12,13 @@ jobs:
     name: TestJob
     env: 
       test: "true"
-      test2: "false"
+      test2: ${{ contains("key", "shit") }}
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
         run: |
           echo "${{ env.test && 'blä2' || 'buu2' }}"
+          echo "${{ env.test2 }}"
           echo "${{ env.test2 == 'false' && 'blä3' || 'buu3' }}"
           echo "${{ env.test2 && 'blä4' || 'buu4' }}"
       - name: TestStep2
