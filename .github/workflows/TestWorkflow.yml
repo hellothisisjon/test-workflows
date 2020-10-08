@@ -12,4 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
-        run: echo "${{ contains(github.ref, 'v*.*.*') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'master') }}"
+        run: |
+          echo "${{ github.ref }}"
+          echo "${{ contains(github.ref, 'v') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'main') }}"
+          echo "${{ contains(github.ref, 'v*.*.*') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'main') }}"
+          echo "${{ toJSON(github) }}"
