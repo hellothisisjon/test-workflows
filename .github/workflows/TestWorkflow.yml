@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: TestStep
         env: 
-          test: true
-          test2: false
+          test: "true"
+          test2: "false"
         run: |
           echo "${{ github.ref }}"
           echo "${{ contains(github.ref, 'v') && !contains(github.ref, 'hotfix') && !contains(github.ref, 'main') }}"
