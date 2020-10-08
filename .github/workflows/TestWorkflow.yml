@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
+        id: TestStep
         run: |
           echo "::set-output name=test::true"
           echo "::set-output name=test2::false"
