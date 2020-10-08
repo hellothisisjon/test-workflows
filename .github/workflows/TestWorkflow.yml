@@ -10,21 +10,16 @@ jobs:
   # comment
   TestJob:
     name: TestJob
-    env: 
-      test: "true"
-      test2: ${{ contains('key', 'shit') }}
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
         run: |
-          echo "${{ env.test && 'blä2' || 'buu2' }}"
-          echo "${{ env.test2 }}"
-          echo "${{ env.test2 == 'false' && 'blä3' || 'buu3' }}"
-          echo "${{ env.test2 && 'blä4' || 'buu4' }}"
+          echo "::set-output name=test::true"
+          echo "::set-output name=test2::false"
       - name: TestStep2
         env: 
-          testi: ${{ env.test == 'true' && 'blä1' || 'buu1' }}
-          testi2: ${{ env.test2 && 'blä4' || 'buu4' }}
+          testi: ${{ steps.TestStep.outputs.test && 'blä1' || 'buu1' }}
+          testi2: ${{ steps.TestStep.outputs.test2 && 'blä4' || 'buu4' }}
         run: |
           echo "${{ env.testi }}"
           echo "${{ env.testi2 }}"
