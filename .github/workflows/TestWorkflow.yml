@@ -15,7 +15,7 @@ env:
 jobs:
   # comment
   TestJob:
-    if: ${{ strategy.matrix.config.shouldRun == 'true' }}
+    if: ${{ 'false' == 'true' }}
     strategy:
       matrix:
         config:
