@@ -22,5 +22,5 @@ jobs:
           testi2: ${{ steps.TestStep.outputs.tests.test2 && 'blä4' || 'buu4' }}
         run: |
           echo "${{ env.testi }}"
-          echo "${{ steps.TestStep.outputs.test2 }}"
+          echo "${{ steps.TestStep.outputs.tests.test2 }}"
           echo "${{ env.testi2 }}"
