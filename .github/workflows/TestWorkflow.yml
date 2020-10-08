@@ -12,7 +12,7 @@ jobs:
     name: TestJob
     env: 
       test: "true"
-      test2: ${{ contains("key", "shit") }}
+      test2: ${{ contains('key', 'shit') }}
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
