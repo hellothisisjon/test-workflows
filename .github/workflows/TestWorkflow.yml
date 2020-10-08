@@ -18,10 +18,10 @@ jobs:
     strategy:
       matrix:
         config:
-        -  {AWS_ENV: 'dev', AWS_ACCOUNT_NR: '572577926476', shouldRun: '${{env.shouldDeployToStaging == "true"}}' }
-        -  {AWS_ENV: 'fina', AWS_ACCOUNT_NR: '572577926476', shouldRun: '${{env.shouldDeployToStaging == "false"}}' }
-        -  {AWS_ENV: 'prod', AWS_ACCOUNT_NR: '521091457580', shouldRun: '${{env.shouldDeployToStaging == "false"}}' }
-        -  {AWS_ENV: 'staging', AWS_ACCOUNT_NR: '521091457580', shouldRun: '${{env.shouldDeployToStaging == "false"}}' }
+        -  {AWS_ENV: 'dev', AWS_ACCOUNT_NR: '572577926476', shouldRun: '${{shouldDeployToStaging == "true"}}' }
+        -  {AWS_ENV: 'fina', AWS_ACCOUNT_NR: '572577926476', shouldRun: '${{shouldDeployToStaging == "false"}}' }
+        -  {AWS_ENV: 'prod', AWS_ACCOUNT_NR: '521091457580', shouldRun: '${{shouldDeployToStaging == "false"}}' }
+        -  {AWS_ENV: 'staging', AWS_ACCOUNT_NR: '521091457580', shouldRun: '${{shouldDeployToStaging == "false"}}' }
     name: TestJob
     runs-on: ubuntu-latest
     steps:
