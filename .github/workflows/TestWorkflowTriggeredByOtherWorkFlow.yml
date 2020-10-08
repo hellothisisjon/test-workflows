@@ -1,0 +1,14 @@
+name: TestWorkflowTriggeredByOtherWorkFlow
+
+on:
+  workflow_run:
+    workflows: ["TestWorkflow"]
+    types:
+      - completed
+jobs:
+  TestJob:
+    name: TestJob
+    runs-on: ubuntu-latest
+    steps:
+      - name: TestStep
+        run: echo ${{ github.ref }}
