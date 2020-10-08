@@ -17,9 +17,9 @@ jobs:
           test: "true"
           test2: "false"
         run: |
-          echo "${{ env.test && "blä2" || "buu2" }}"
-          echo "${{ !env.test2 && "blä3" || "buu3" }}"
-          echo "${{ env.test2 && "blä4" || "buu4" }}"
+          echo "${{ env.test && blä2 || buu2 }}"
+          echo "${{ !env.test2 && blä3 || buu3 }}"
+          echo "${{ env.test2 && blä4 || buu4 }}"
       - name: TestStep2
         env: 
           testi: ${{ env.test == true && "blä1" || "buu1" }}
