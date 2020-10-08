@@ -15,12 +15,11 @@ jobs:
       - name: TestStep
         id: TestStep
         run: |
-          echo "::set-output name=test::true"
-          echo "::set-output name=test2::false"
+          echo "::set-output name=tests::{\"test1\":true,\"test2\":false}"
       - name: TestStep2
         env: 
-          testi: ${{ steps.TestStep.outputs.test && 'blä1' || 'buu1' }}
-          testi2: ${{ fromJSON(steps.TestStep.outputs.test2) && 'blä4' || 'buu4' }}
+          testi: ${{ steps.TestStep.outputs.tests.test && 'blä1' || 'buu1' }}
+          testi2: ${{ fromJSON(steps.TestStep.outputs.tests.test2) && 'blä4' || 'buu4' }}
         run: |
           echo "${{ env.testi }}"
           echo "${{ steps.TestStep.outputs.test2 }}"
