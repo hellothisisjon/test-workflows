@@ -7,9 +7,8 @@ name: triggered from another
 on:
   workflow_run:
     workflows: ["TestWorkflow"]
-    branches:
-      - main
-      - another-branch-to-run-workflows-in
+    tags:
+      - "v*.*.*"
     types:
       - completed
 
