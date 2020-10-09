@@ -9,6 +9,7 @@ on:
     workflows: ["TestWorkflow"]
     branches:
       - main
+      - another-branch-to-run-workflows-in
     types:
       - completed
 
