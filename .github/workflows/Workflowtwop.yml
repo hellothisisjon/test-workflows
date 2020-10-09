@@ -7,8 +7,6 @@ name: triggered from another
 on:
   workflow_run:
     workflows: ["TestWorkflow"]
-    tags:
-      - "v*.*.*"
     types:
       - completed
 
