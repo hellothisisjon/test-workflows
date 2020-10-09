@@ -3,7 +3,7 @@
 name: triggered from another
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
+
 on:
   workflow_run:
     workflows: ["TestWorkflow"]
@@ -24,4 +24,4 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{toJSON(github.event.workflow_run)}}"
+        run: echo "${{toJSON(github.event.workflow_run.head_branch)}}"
