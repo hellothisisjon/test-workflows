@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - main
+      - another-branch-to-run-workflows-in
     tags:
       - "v*.*.*"
 env:
   shouldDeployToDevelop: "true"
-      # If the ref pushed is master deploy to prod
-  shouldDeployToMaster: "false"
-      # If the ref pushed is etiher staging or contains tags and the word hotfix
+  # If the ref pushed is master deploy to prod
+  shouldDeployToMaster:
+    "false"
+    # If the ref pushed is etiher staging or contains tags and the word hotfix
   shouldDeployToStaging: "false"
 jobs:
   # commen
@@ -21,4 +23,3 @@ jobs:
       - name: TestStep
         run: |
           echo "hello"
-     
