@@ -18,7 +18,7 @@ jobs:
 
   # commen
   TestJob:
-    if: ${{ shouldDeployToDevelop == 'true' }}
+    if: ${{ env.shouldDeployToDevelop == 'true' }}
     name: TestJob
     runs-on: ubuntu-latest
     steps:
