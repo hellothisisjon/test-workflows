@@ -9,7 +9,7 @@ on:
       - "v*.*.*"
 env:
   shouldDeployToDevelop: "true"
-  # If the ref pushed is master deploy to prod
+
   shouldDeployToMaster:
     "false"
     # If the ref pushed is etiher staging or contains tags and the word hotfix
