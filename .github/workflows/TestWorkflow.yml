@@ -15,24 +15,10 @@ env:
 jobs:
   # commen
   TestJob:
-    strategy:
-      matrix:
-        config:
-          -  {AWS_ENV: 'dev', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{contains(github.ref, 'tags')}}", secret: "${{secrets.mysecret}}" }
-          -  {AWS_ENV: 'fina', AWS_ACCOUNT_NR: '572577926476', shouldRun: "${{'a' == 'a'}}" }
-          -  {AWS_ENV: 'prod', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
-          -  {AWS_ENV: 'staging', AWS_ACCOUNT_NR: '521091457580', shouldRun: "${{contains(github.ref, 'tags')}}" }
-        
     name: TestJob
     runs-on: ubuntu-latest
     steps:
       - name: TestStep
-        id: TestStep
-        run: |
-          echo "${{ matrix.config.AWS_ENV }}"
-          echo "${{ matrix.config.shouldRun }}"
-      - name: TestStep2
-        if: fromJson(matrix.config.shouldRun)
         run: |
           echo "hello"
      
