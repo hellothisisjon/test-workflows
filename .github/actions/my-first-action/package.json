@@ -1,0 +1,15 @@
+{
+  "name": "my-first-action",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build src/main.ts"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@tsconfig/node12": "^1.0.7",
+    "@vercel/ncc": "^0.24.1",
+    "typescript": "^4.0.3"
+  }
+}

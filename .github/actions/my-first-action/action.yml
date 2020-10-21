@@ -1,0 +1,13 @@
+name: 'My first action'
+description: 'Greet someone and record the time'
+inputs:
+  anInput:  # id of input
+    description: 'some text'
+    required: true
+    default: 'World'
+outputs:
+  anOutput: # id of output
+    description: 'some text added to the input'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

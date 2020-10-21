@@ -1,0 +1,25 @@
+
+name: WorkflowTwo
+
+on:
+  workflow_run:
+    workflows: ["WorkflowOne"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run a action
+        id: my-first-action
+        uses: '../actions/my-fist-action'
+        with:
+          anInput: 'Hello there'
+      - name: Echo the output
+        run: |
+          echo ${{ steps.my-first-action.outputs.anOutput }}
