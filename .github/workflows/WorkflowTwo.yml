@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run a action
         id: my-first-action
-        uses: './.github/actions/my-fist-action'
+        uses: ./.github/actions/my-first-action
         with:
           anInput: 'Hello there'
       - name: Echo the output
